@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 
-@RestController
+@Controller
 
 public class StudentController {
 
@@ -24,8 +24,10 @@ public class StudentController {
 
 
     @GetMapping("/getStudents")
-    public List<StudentEntity> getStudents(){
-        return serviceStudents.findAllStudents();
+    public String getStudents(Model model){
+        List<StudentEntity> students = serviceStudents.findAllStudents();
+        model.addAttribute("students", students);
+        return "students";
     }
 
 
