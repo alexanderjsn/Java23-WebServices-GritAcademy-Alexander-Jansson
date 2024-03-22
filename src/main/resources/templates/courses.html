@@ -5,14 +5,6 @@
     <title>Studetns</title>
 </head>
 <body>
-<h2>Student info</h2>
-<div th:each="student : ${students}">
-    <p th:text="${student.fName}"></p>
-    <p th:text="${student.lName}"></p>
-</div>
-<button class="button">Show all students</button> <!-- skriv in javascript sen -->
-
-<!-- anvönd javascript så den visar när man trycker men dölher andrA? annars tåv sidor -->
 <div id="courseDiv">
     <h2>Kurs info</h2>
     <div th:each="course : ${courses}">
@@ -20,6 +12,8 @@
         <p th:text="${course.description}"></p>
     </div>
 </div>
+<button class="button">Show all students</button> <!-- skriv in javascript sen -->
+
 
 <button class="button">Show all students</button>
 <h2> Sök efter särskild info</h2>
