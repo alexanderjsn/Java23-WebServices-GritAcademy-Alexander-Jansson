@@ -8,6 +8,17 @@
 <h2>Student info</h2>
 <div th:each="student : ${students}">
     <p th:text="${student.fName}"></p>
+    <p th:text="${student.lName}"></p>
+
+</div>
+<button class="button">Show all students</button> <!-- skriv in javascript sen -->
+
+<h2> Sök efter särskild info</h2>
+<div class="specificSearch">
+    <form th:action="@{/search}" method="get">
+        <input type="text" name="query" placeholder="Sök efter särskild kriteria">
+        <button type="submit">Sök</button> <!--javascript -->
+    </form>
 
 </div>
 </body>
