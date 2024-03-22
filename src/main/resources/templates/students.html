@@ -9,6 +9,8 @@
 <div th:each="student : ${students}">
     <p th:text="${student.fName}"></p>
     <p th:text="${student.lName}"></p>
+    <p th:text="${student.town}"></p>
+
 </div>
 <button class="button">Show all students</button> <!-- skriv in javascript sen -->
 
@@ -24,10 +26,27 @@
 <button class="button">Show all students</button>
 <h2> Sök efter särskild info</h2>
 <div class="specificSearch">
-    <form th:action="@{/searchedStudents}" method="get">
+    <form th:action="@{/searchfName}" method="get">
         <input type="text" name="query" placeholder="Sök efter särskild kriteria">
         <button type="submit">Sök</button> <!--javascript -->
     </form>
+
+    <form th:action="@{/searchlName}" method="get">
+        <input type="text" name="query" placeholder="Sök efter särskild kriteria">
+        <button type="submit">Sök</button> <!--javascript -->
+    </form>
+
+
+    <form th:action="@{/searchTown}" method="get">
+        <input type="text" name="query" placeholder="Sök efter särskild kriteria">
+        <button type="submit">Sök</button> <!--javascript -->
+    </form>
+
+    <form th:action="@{/searchAll}" method="get">
+        <input type="text" name="query" placeholder="Sök efter särskild kriteria">
+        <button type="submit">Sök</button> <!--javascript -->
+    </form>
+
 
 </div>
 </body>

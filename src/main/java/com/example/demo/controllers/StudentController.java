@@ -31,10 +31,36 @@ public class StudentController {
         return "students";
     }
 
-    @GetMapping("/searchedStudents")
-    public String searchedStudents(@RequestParam("query") String query, Model model){
-        List<StudentEntity> students = serviceStudents.searchedStudents(query);
+
+    @GetMapping("/searchAll")
+    public String searchAll(@RequestParam("query") String query, Model model){
+        List<StudentEntity> students = serviceStudents.searchAll(query);
         model.addAttribute("students", students);
         return "students";
     }
+
+
+/*
+    @GetMapping("/searchfName")
+    public String searchedStudents(@RequestParam("query") String query, Model model){
+        List<StudentEntity> students = serviceStudents.searchfName(query);
+        model.addAttribute("students", students);
+        return "students";
+    }
+
+    @GetMapping("/searchlName")
+    public String searchlName(@RequestParam("query") String query, Model model){
+        List<StudentEntity> students = serviceStudents.searchlName(query);
+        model.addAttribute("students", students);
+        return "students";
+    }
+
+    @GetMapping("/searchTown")
+    public String searchTown(@RequestParam("query") String query, Model model){
+        List<StudentEntity> students = serviceStudents.searchTown(query);
+        model.addAttribute("students", students);
+        return "students";
+    }*/
+
+
 }
