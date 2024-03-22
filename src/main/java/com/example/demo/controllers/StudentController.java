@@ -4,6 +4,7 @@ import com.example.demo.models.StudentEntity;
 import com.example.demo.models.StudentRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +31,10 @@ public class StudentController {
         return "students";
     }
 
-
-
+    @GetMapping("/searchedStudents")
+    public String searchedStudents(@RequestParam("query") String query, Model model){
+        List<StudentEntity> students = serviceStudents.searchedStudents(query);
+        model.addAttribute("students", students);
+        return "students";
+    }
 }
