@@ -1,9 +1,5 @@
-package com.example.demo.controllers;
+package com.example.demo.controllers.trash;
 
-import com.example.demo.models.ServiceStudents;
-import com.example.demo.models.StudentEntity;
-import com.example.demo.models.courses.CourseEntity;
-import com.example.demo.models.courses.CourseService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +24,5 @@ public class CourseController {
         model.addAttribute("courses", courses);
         return "students";
     }
-
-
 
 }

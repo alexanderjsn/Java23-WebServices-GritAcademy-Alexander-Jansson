@@ -1,5 +1,4 @@
-package com.example.demo.models.courses;
-import com.example.demo.models.StudentEntity;
+package com.example.demo.controllers.trash;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

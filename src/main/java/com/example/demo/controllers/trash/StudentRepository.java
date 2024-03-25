@@ -1,6 +1,5 @@
-package com.example.demo.models;
+package com.example.demo.controllers.trash;
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.example.demo.models.StudentEntity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -12,14 +11,8 @@ import java.util.List;
 public interface StudentRepository extends JpaRepository<StudentEntity, Long> {
 
 
-    // Denna lista agerar som ett SQL kommand, därav namnet på klassen. Skickar ut fName
-   /* List<StudentEntity> findByfNameContainingIgnoreCase(String fName);
 
-    List<StudentEntity> findBylNameContainingIgnoreCase(String lName);
-
-    List<StudentEntity> findByTownContainingIgnoreCase(String town);*/
-
-
+// söka på studenter där fname, lname eller town är query (från form) -> kvittar om det är stora eller små bokstäver
     @Query("SELECT s FROM StudentEntity s WHERE " +
             "LOWER(s.fName) LIKE LOWER(CONCAT('%', :query, '%')) OR " +
             "LOWER(s.lName) LIKE LOWER(CONCAT('%', :query, '%')) OR " +
@@ -28,3 +21,6 @@ public interface StudentRepository extends JpaRepository<StudentEntity, Long> {
     List<StudentEntity> searchAll(@Param("query") String query);
 
 }
+
+
+

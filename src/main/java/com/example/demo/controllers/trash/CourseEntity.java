@@ -1,12 +1,13 @@
-package com.example.demo.models.courses;
+package com.example.demo.controllers.trash;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "courses")
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
 @NoArgsConstructor
 public class CourseEntity {
 
@@ -20,4 +21,7 @@ public class CourseEntity {
 
     @Column(name = "description")
     private String description;
+
+
+
 }

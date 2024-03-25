@@ -1,14 +1,8 @@
-package com.example.demo.controllers;
-import com.example.demo.models.ServiceStudents;
-import com.example.demo.models.StudentEntity;
-import com.example.demo.models.StudentRepository;
-import org.springframework.stereotype.Service;
+package com.example.demo.controllers.trash;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 

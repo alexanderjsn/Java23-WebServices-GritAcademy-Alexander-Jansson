@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Studetns</title>
+</head>
+<body>
+<h2>Student info</h2>
+<div th:each="student : ${students}">
+    <p th:text="${student.fName}"></p>
+    <p th:text="${student.lName}"></p>
+    <p th:text="${student.town}"></p>
+
+</div>
+<button class="button">Show all students</button> <!-- skriv in javascript sen -->
+
+<!-- anvönd javascript så den visar när man trycker men dölher andrA? annars tåv sidor -->
+<div id="courseDiv">
+    <h2>Kurs info</h2>
+    <div th:each="course : ${courses}">
+        <p th:text="${course.name}"></p>
+        <p th:text="${course.description}"></p>
+    </div>
+</div>
+<button class="button">Show all courses</button> <!-- leda till course url -->
+
+<h2> Sök studenter</h2>
+<div class="specificSearch">
+    <form th:action="@{/searchAll}" method="get">
+        <input type="text" name="query" placeholder="Sök efter id, förnamn, efternamn eller stad">
+        <button type="submit">Sök</button> <!--javascript -->
+    </form>
+</div>
+
+
+
+<h2> Sök kurser</h2>
+<div class="specificSearch">
+    <form th:action="@{/searchAllCourses}" method="get">
+        <input type="text" name="query" placeholder="Sök efter id, namn eller beskrivning">
+        <button type="submit">Sök</button>
+    </form>
+</div>
+
+
+
+<div id="associatioDiv">
+    <h2>Kurs info</h2>
+    <div th:each="association : ${associations}">
+        <p th:text="${association}"></p>
+    </div>
+</div>
+
+<ul>
+    <li th:each="studentName : ${students}">
+        <span th:text="${studentName}"></span>
+    </li>
+</ul>
+
+<h2> Sök efter studenter på kurser</h2>
+<div class="specificSearch">
+    <form th:action="@{/student/course/searchStudents}" method="get">
+        <input type="text" name="name" placeholder="Sök efter kursnamnaaaa">
+        <button type="submit">Sök</button>
+    </form>
+
+</div>
+
+
+
+</body>
+</html>
