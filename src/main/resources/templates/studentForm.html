@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<h1>Find Students</h1>
+<h1>Find Students by course ID</h1>
 <form th:action="@{/students/by-course}" method="get">
-<label for="courseId"></label>
-<input type="text" id="courseId" name="courseId" required>
+    <label for="courseId">Course ID:</label>
+    <input type="text" id="courseId" name="courseId" required>
     <button type="submit">Search</button>
 </form>
+
 </body>
 </html>

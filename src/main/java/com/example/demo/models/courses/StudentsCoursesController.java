@@ -21,11 +21,16 @@ public class StudentsCoursesController {
     @Autowired
     private StudentCoursesService studentCoursesService;
 
+
+    // Hämtar alla kurser som på student id
+
+    // Hanterar formen
     @GetMapping("/students/by_course")
-    public String showForm(Model model){
+    public String showForm(Model model) {
         return "studentForm";
     }
 
+    // Tar in data med förnamn baserat på kurs id
     @GetMapping("/students/by-course")
     public String getStudentNamesByCourseId(@RequestParam("courseId") Long courseId, Model model) {
         List<StudentNameDTO> studentNames = studentCoursesService.getStudentNamesbyCourseId(courseId);
@@ -33,9 +38,11 @@ public class StudentsCoursesController {
         return "studentList";
     }
 
+    // Tar fram studenter på kurs ID
+
 
     @GetMapping("/students/by_student")
-    public String showCourseForm(Model model){
+    public String showCourseForm(Model model) {
         return "courseForm";
     }
 
@@ -46,12 +53,27 @@ public class StudentsCoursesController {
         return "courseList";
     }
 
+
+    // Tar fram student namn baserat på kurs namn
+
+    //form
+    @GetMapping("/students/by_course_name")
+    public String showCourseFormbyName(){
+        return "studentFormByName";
+    }
+
+    @GetMapping("/students/by-course-name")
+    public String getStudentsByCourseName(@RequestParam("name") String courseName, Model model) {
+        List<StudentNameDTO> studentsByName = studentCoursesService.getStudentsByCourseName(courseName);
+        model.addAttribute("studentsByName", studentsByName);
+        return "studentListByName";
+    }
+    // ifall fel sker åker man tillbaka till fel sida istället
     @ExceptionHandler({NumberFormatException.class})
     public String handleNumberFormatException(Exception exception, Model model){
         model.addAttribute("error", "Only numbers");
         return "errorpage";
     }
-
 }
 
 

@@ -22,6 +22,12 @@ public class StudentCoursesService {
     public List<CourseNameDTO> getCoursesByStudentId(Long studentId){
         return studentCourseRepository.findCoursesByStudentId(studentId);
     }
+
+    public List<StudentNameDTO> getStudentsByCourseName(String courseName){
+        return studentCourseRepository.findStudentsByCourseName(courseName);
+    }
+
+
 }
 
 
