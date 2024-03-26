@@ -1,7 +1,9 @@
 package com.example.demo.models.courses;
 
 
+import com.example.demo.Course;
 import com.example.demo.CourseNameDTO;
+import com.example.demo.StudentCourse;
 import com.example.demo.StudentNameDTO;
 import com.example.demo.models.courses.StudentCourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,12 @@ public class StudentCoursesService {
 
     public List<CourseNameDTO> getCoursesByStudentDetails(String fName, String lName, String town){
         return studentCourseRepository.findCoursesByStudentDetails(fName, lName, town);
+    }
+
+
+    public List<StudentCourse> findAllAssociations() {
+
+        return studentCourseRepository.findAll();
     }
 
 }

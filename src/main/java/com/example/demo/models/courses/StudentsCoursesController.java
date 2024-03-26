@@ -1,6 +1,8 @@
 package com.example.demo.models.courses;
 
+import com.example.demo.Course;
 import com.example.demo.CourseNameDTO;
+import com.example.demo.StudentCourse;
 import com.example.demo.StudentNameDTO;
 import com.example.demo.models.courses.StudentCoursesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +60,10 @@ public class StudentsCoursesController {
 
     //form
     @GetMapping("/students/by_course_name")
-    public String showCourseFormbyName(){
+    public String showCourseFormbyName(Model model){
+
+        List<StudentCourse> assocations = studentCoursesService.findAllAssociations();
+        model.addAttribute("assocations", assocations);
         return "studentFormByName";
     }
 

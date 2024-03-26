@@ -7,6 +7,17 @@
     <title>Title</title>
 </head>
 <body>
+
+<a th:href="@{/homepage}">Home</a>
+<a th:href="@{/students/by_student}"> Search your courses</a>
+<a th:href="@{/students/by_course}"> Search students in courses</a>
+<a th:href="@{/students}"> See all students</a>
+<a th:href="@{/courses}"> Search all courses </a>
+<a th:href="@{/students/by_course_name}"> Search all students by course name </a>
+<a th:href="@{/students/by_student_details}"> Search all courses by student details </a>
+
+
+
 <h1>Search for courses by student name, surname or town</h1>
 <form th:action="@{/students/by-student-details}" method="get">
 

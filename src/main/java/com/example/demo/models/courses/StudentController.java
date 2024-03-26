@@ -1,4 +1,7 @@
-package com.example.demo.controllers.trash;
+package com.example.demo.models.courses;
+import com.example.demo.Student;
+import com.example.demo.controllers.trash.StudentEntity;
+import com.example.demo.models.courses.ServiceStudents;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.stereotype.Controller;
@@ -18,17 +21,17 @@ public class StudentController {
     }
 
 
-    @GetMapping("/getStudents")
+    @GetMapping("/students")
     public String getStudents(Model model){
-        List<StudentEntity> students = serviceStudents.findAllStudents();
+        List<Student> students = serviceStudents.findAllStudents();
         model.addAttribute("students", students);
         return "students";
     }
 
 
-    @GetMapping("/searchAll")
+    @GetMapping("/students/searchAll")
     public String searchAll(@RequestParam("query") String query, Model model){
-        List<StudentEntity> students = serviceStudents.searchAll(query);
+        List<Student> students = serviceStudents.searchAll(query);
         model.addAttribute("students", students);
         return "students";
     }

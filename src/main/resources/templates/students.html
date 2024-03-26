@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Studetns</title>
 </head>
 <body>
 
@@ -17,7 +15,26 @@
 <a th:href="@{/students/by_student_details}"> Search all courses by student details </a>
 
 
-<h1>fel!!</h1>
-<a th:href="@{/homepage}"> Gå tillbaka</a>
+
+
+<h2>Student info</h2>
+<div th:each="student : ${students}">
+    <p th:text="${student.fName}"></p>
+    <p th:text="${student.lName}"></p>
+    <p th:text="${student.town}"></p>
+
+</div>
+
+
+<h2> Sök studenter</h2>
+<div class="specificSearch">
+    <form th:action="@{/students/searchAll}" method="get">
+        <input type="text" name="query" placeholder="Sök efter id, förnamn, efternamn eller stad">
+        <button type="submit">Sök</button> <!--javascript ajax kanske?-->
+    </form>
+</div>
+
+
+
 </body>
 </html>

@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import com.example.demo.controllers.trash.CourseEntity;
 import com.example.demo.controllers.trash.StudentEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -21,5 +20,5 @@ public class StudentCourse {
     private StudentEntity student;
     @ManyToOne
     @JoinColumn(name = "course_id",referencedColumnName = "id")
-    private CourseEntity course;
+    private Course course;
 }

@@ -1,5 +1,6 @@
 package com.example.demo.controllers.trash;
 
+import com.example.demo.Course;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,7 +21,7 @@ public class StudentCoursesEntity {
     private StudentEntity students;
     @ManyToOne
     @JoinColumn(name = "course_id",referencedColumnName = "id")
-    private CourseEntity courses;
+    private Course courses;
 }
 
 
