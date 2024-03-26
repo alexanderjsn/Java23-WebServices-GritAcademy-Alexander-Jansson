@@ -28,10 +28,10 @@ public class CourseController {
         return "courses";
     }
 
-    @GetMapping("/students/searchAllCourses")
+    @GetMapping("/courses/searchAllCourses")
     public String searchAll(@RequestParam("query") String query, Model model){
-        List<Course> courses = courseService.searchCourses(query);
-        model.addAttribute("courses", courses);
+        List<Course> courseSearch = courseService.searchCourses(query);
+        model.addAttribute("courseSearch", courseSearch);
         return "courses";
     }
 

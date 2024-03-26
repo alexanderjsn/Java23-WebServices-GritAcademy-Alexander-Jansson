@@ -25,12 +25,20 @@
 </div>
 
 
+<div>
+    <div th:each="course : ${courseSearch}">
+        <p th:text="${course.name}"></p>
+        <p th:text="${course.description}"></p>
+    </div>
+</div>
+
+
 
 <h2> Search courses</h2>
 <div class="specificCourseSearch">
     <form th:action="@{/courses/searchAllCourses}" method="get">
-        <input type="text" name="query" placeholder="Search after name or description>
-        <button type="submit">Search</button>
+        <input type="text" name="query" placeholder="Search after name or description">
+        <button type="submit">Sök</button> <!--javascript ajax kanske?-->
     </form>
 </div>
 
