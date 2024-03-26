@@ -68,43 +68,40 @@ public class StudentsCoursesController {
         model.addAttribute("studentsByName", studentsByName);
         return "studentListByName";
     }
-    // ifall fel sker åker man tillbaka till fel sida istället
-    @ExceptionHandler({NumberFormatException.class})
-    public String handleNumberFormatException(Exception exception, Model model){
-        model.addAttribute("error", "Only numbers");
-        return "errorpage";
+
+
+
+    // Få fram studentens kurser baserat på namn, efternamn och stad
+
+
+    @GetMapping("/students/by_student_details")
+    public String CoursesByStudentDetailsForm(){
+        return "coursesByStudentDetails";
     }
-}
+
+    @GetMapping("/students/by-student-details")
+    public String ShowCoursesByStudentDetails(@RequestParam("fName") String fName,
+                                              @RequestParam("lName") String lName,
+                                              @RequestParam("town") String town, Model model) {
+
+
+        List<CourseNameDTO> CoursesByDetails = studentCoursesService.getCoursesByStudentDetails(fName, lName, town);
+        model.addAttribute("CoursesByDetails", CoursesByDetails);
+        return "studentListByDetails";
+    }
+
+
 
 
 
 
 /*
-*    @GetMapping("/getAssociations")
-    public String getAssociations(@RequestParam String query, Model model){
-        List<String> associations = studentCoursesService.findStudentsByCourseId(query);
-        model.addAttribute("associations", associations);
-        return "students";
-    }
-*
-*
-*
-*
-*
-*
-*
-        private StudentCoursesService studentCoursesService;
-
-        @Autowired
-        public StudentsCoursesController(StudentCoursesService studentCoursesService){
-            this.studentCoursesService = studentCoursesService;
-        }
+    // ifall fel sker åker man tillbaka till fel sida istället
+    @ExceptionHandler({NumberFormatException.class})
+    public String handleNumberFormatException(Exception exception, Model model){
+        model.addAttribute("error", "Only numbers");
+        return "errorpage";
+    }*/
+}
 
 
-        @GetMapping("/searchStudents")
-        public String searchStudentsbyCourse(@RequestParam("name") String courseName, Model model){
-            List<String> students=  studentCoursesService.allStudentsbyCourse(courseName);
-            model.addAttribute("students", students);
-            return "students";
-        }
-* */

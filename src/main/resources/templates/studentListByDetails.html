@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Courses by Firstname, Surname or town</h1>
+<div th:if="${!CoursesByDetails.isEmpty()}">
+  <ul>
+<li th:each="course : ${CoursesByDetails}" th:text="${course.name}  + ' - ' +  ${course.description}"></li>
+  </ul>
+</div>
+
+<div th:if="${CoursesByDetails.isEmpty()}">
+  <p>Nothing found!</p>
+</div>
+
+</body>
+</html>

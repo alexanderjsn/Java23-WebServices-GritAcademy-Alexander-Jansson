@@ -18,6 +18,10 @@ public interface StudentCourseRepository extends JpaRepository<StudentCourse, Lo
 
 
     @Query("SELECT new com.example.demo.StudentNameDTO(s.student.fName, s.student.lName) FROM StudentCourse s WHERE s.course.name = :courseName")
-    List<StudentNameDTO> findStudentsByCourseName(String courseName);
+    List<StudentNameDTO> findStudentsByCourseName(@Param("courseName")String courseName);
+
+
+    @Query("SELECT new com.example.demo.CourseNameDTO(c.name, c.description) FROM StudentCourse sc JOIN sc.student s JOIN sc.course c WHERE s.fName = :fName OR s.lName = :lName OR s.town = :town")
+    List<CourseNameDTO> findCoursesByStudentDetails(@Param("fName") String fName, @Param("lName") String lName, @Param("town") String town);
 }
 

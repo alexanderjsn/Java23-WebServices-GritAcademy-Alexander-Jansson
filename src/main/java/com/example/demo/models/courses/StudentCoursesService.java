@@ -28,6 +28,10 @@ public class StudentCoursesService {
     }
 
 
+    public List<CourseNameDTO> getCoursesByStudentDetails(String fName, String lName, String town){
+        return studentCourseRepository.findCoursesByStudentDetails(fName, lName, town);
+    }
+
 }
 
 
