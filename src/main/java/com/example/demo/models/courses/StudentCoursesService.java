@@ -1,6 +1,9 @@
-package com.example.demo.controllers.trash;
+package com.example.demo.models.courses;
 
 
+import com.example.demo.StudentNameDTO;
+import com.example.demo.models.courses.StudentCourseRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,6 +11,42 @@ import java.util.List;
 @Service
 public class StudentCoursesService {
 
+    @Autowired
+    private StudentCourseRepository studentCourseRepository;
+
+    public List<StudentNameDTO> getStudentNamesbyCourseId(Long courseId){
+        return studentCourseRepository.findStudentNamesByCourseId(courseId);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
     // hämtar repository
     private final StudentCourseRepository studentCourseRepository;
 
@@ -18,5 +57,4 @@ public class StudentCoursesService {
 
     public List<String> allStudentsbyCourse(String courseName){
         return studentCourseRepository.searchByCourseName(courseName);
-    }
-}
+    }*/
