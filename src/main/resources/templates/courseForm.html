@@ -7,11 +7,12 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Find Students</h1>
-<form th:action="@{/students/by-course}" method="get">
-<label for="courseId"></label>
-<input type="text" id="courseId" name="courseId" required>
+<h1>Find Courses</h1>
+<form th:action="@{/students/by-student}" method="get">
+<label for="studentId"></label>
+<input type="text" id="studentId" name="studentId" required>
     <button type="submit">Search</button>
+
 </form>
 </body>
 </html>

@@ -1,4 +1,5 @@
 package com.example.demo.models.courses;
+import com.example.demo.CourseNameDTO;
 import com.example.demo.StudentCourse;
 import com.example.demo.StudentNameDTO;
 import com.example.demo.controllers.trash.StudentCoursesEntity;
@@ -10,5 +11,9 @@ public interface StudentCourseRepository extends JpaRepository<StudentCourse, Lo
 
     @Query("SELECT new com.example.demo.StudentNameDTO(s.fName, s.lName) FROM StudentCourse sc JOIN sc.student s WHERE sc.course.id = :courseId")
     List<StudentNameDTO> findStudentNamesByCourseId(Long courseId);
+
+
+    @Query("SELECT new com.example.demo.CourseNameDTO(c.name, c.description) FROM StudentCourse sc JOIN sc.course c WHERE sc.student.id = :studentId")
+    List<CourseNameDTO> findCoursesByStudentId(Long studentId);
 
 }

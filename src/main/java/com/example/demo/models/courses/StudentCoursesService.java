@@ -1,6 +1,7 @@
 package com.example.demo.models.courses;
 
 
+import com.example.demo.CourseNameDTO;
 import com.example.demo.StudentNameDTO;
 import com.example.demo.models.courses.StudentCourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,10 @@ public class StudentCoursesService {
 
     public List<StudentNameDTO> getStudentNamesbyCourseId(Long courseId){
         return studentCourseRepository.findStudentNamesByCourseId(courseId);
+    }
+
+    public List<CourseNameDTO> getCoursesByStudentId(Long studentId){
+        return studentCourseRepository.findCoursesByStudentId(studentId);
     }
 }
 

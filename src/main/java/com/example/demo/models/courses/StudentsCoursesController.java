@@ -1,5 +1,6 @@
 package com.example.demo.models.courses;
 
+import com.example.demo.CourseNameDTO;
 import com.example.demo.StudentNameDTO;
 import com.example.demo.models.courses.StudentCoursesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,32 @@ public class StudentsCoursesController {
         return "studentForm";
     }
 
-    @PostMapping("/students/by-course")
+    @GetMapping("/students/by-course")
     public String getStudentNamesByCourseId(@RequestParam("courseId") Long courseId, Model model) {
         List<StudentNameDTO> studentNames = studentCoursesService.getStudentNamesbyCourseId(courseId);
         model.addAttribute("studentNames", studentNames);
         return "studentList";
     }
+
+
+    @GetMapping("/students/by_student")
+    public String showCourseForm(Model model){
+        return "courseForm";
+    }
+
+    @GetMapping("/students/by-student")
+    public String getCoursesByStudentId(@RequestParam("studentId") Long studentId, Model model) {
+        List<CourseNameDTO> courses = studentCoursesService.getCoursesByStudentId(studentId);
+        model.addAttribute("courses", courses);
+        return "courseList";
+    }
+
+    @ExceptionHandler({NumberFormatException.class})
+    public String handleNumberFormatException(Exception exception, Model model){
+        model.addAttribute("error", "Only numbers");
+        return "errorpage";
+    }
+
 }
 
 
