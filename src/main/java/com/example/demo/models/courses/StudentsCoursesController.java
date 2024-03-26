@@ -100,13 +100,12 @@ public class StudentsCoursesController {
 
 
 
-/*
     // ifall fel sker åker man tillbaka till fel sida istället
     @ExceptionHandler({NumberFormatException.class})
     public String handleNumberFormatException(Exception exception, Model model){
         model.addAttribute("error", "Only numbers");
         return "errorpage";
-    }*/
+    }
 }
 
 
